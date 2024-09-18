@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>留言版块</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const feedbackForm = document.getElementById('feedbackForm');
+      const messageContainer = document.getElementById('messageContainer');
+
+      feedbackForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // 防止表单默认提交行为
+
+        const formData = new FormData(feedbackForm);
+
+        fetch('feedback.php', { // 修改为实际处理留言的服务端接口
+          method: 'POST',
+          body: formData
+        })
+                .then(response => response.text())
+                .then(data => {
+                  Swal.fire({
+                    icon: 'success',
+                    title: '留言提交成功！',
+                    text: data,
+                    confirmButtonText: '确定'
+                  });
+
+                  // 更新留言显示区域
+                  const name = formData.get('name');
+                  const message = formData.get('message');
+                  const email = formData.get('email');
+
+                  const newMessage = document.createElement('div');
+                  newMessage.classList.add('message-item');
+                  newMessage.innerHTML = `
+            <h3>${name} (${email})</h3>
+            <p>${message}</p>
+            <hr>
+          `;
+
+                  messageContainer.appendChild(newMessage);
+                  feedbackForm.reset(); // 清空表单
+                })
+                .catch(error => {
+                  Swal.fire({
+                    icon: 'error',
+                    title: '提交失败',
+                    text: '请稍后再试。',
+                    confirmButtonText: '确定'
+                  });
+                });
+      });
+    });
+  </script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="index.html">返回首页</a></li>
+        <li><a href="#">博客文章</a></li>
+        <li><a href="#contact">联系方式</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="feedback">
+    <div class="container">
+      <form id="feedbackForm" method="POST">
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">邮箱：</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="message">留言：</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <br>
+        <button type="submit" class="btn-primary">提交留言</button>
+      </form>
+      <div id="messageContainer" class="message-container">
+        <!-- 留言将显示在这里 -->
+      </div>
+    </div>
+  </section>
+</main>
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>联系方式</h2>
+    <p>你可以通过以下方式与我联系：</p>
+    <ul>
+      <li><a href="mailto:example@example.com" class="btn-secondary">发送邮件</a></li>
+      <li><a href="https://twitter.com/yourprofile" target="_blank" class="btn-secondary">Twitter</a></li>
+      <li><a href="https://linkedin.com/in/yourprofile" target="_blank" class="btn-secondary">LinkedIn</a></li>
+    </ul>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <p>&copy; 你好 | 这里是PersonalBlog</p>
+  </div>
+</footer>
+</body>
+</html>

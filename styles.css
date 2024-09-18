@@ -1,0 +1,278 @@
+/* Reset some default styles */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 1.8em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Hero section */
+.hero {
+    background: linear-gradient(to right, #f4f4f4, #e2e2e2);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.btn-primary {
+    background: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: #007BFF;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #0056b3;
+}
+
+/* Posts section */
+.posts {
+    padding: 20px;
+}
+
+.posts .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.posts article {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    text-align: left; /* Ensure text is left-aligned */
+}
+
+.posts article h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.posts article p {
+    margin: 10px 0;
+}
+
+.posts article a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.posts article a:hover {
+    text-decoration: underline;
+}
+
+/* About and Contact sections */
+.about, .contact {
+    padding: 40px 20px;
+}
+
+.about h2, .contact h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Contact section specific styles */
+.contact {
+    text-align: center;
+}
+
+.contact ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center-align the flex container */
+    gap: 20px; /* Space between the items */
+}
+
+.contact ul li {
+    margin: 0; /* Remove margin to prevent extra spacing */
+}
+
+.contact ul li a {
+    background: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.contact ul li a:hover {
+    background: #0056b3;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background: #007BFF;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+footer a:hover {
+    background: #0056b3;
+}
+
+/* Feedback section */
+.feedback {
+    padding: 40px 20px;
+    background: #f4f4f4;
+    margin-bottom: 60px; /* Add margin to prevent overlap with the footer */
+}
+
+.feedback h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.feedback form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.feedback form input,
+.feedback form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.feedback form button {
+    background: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.feedback form button:hover {
+    background: #0056b3;
+}
+
+.feedback #responseMessage {
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #007BFF;
+}
+.message-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.message-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.message-item:last-child {
+    border-bottom: none;
+}
+
+.message-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.message-item p {
+    margin: 5px 0;
+}
